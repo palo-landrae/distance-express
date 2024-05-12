@@ -2,7 +2,7 @@ const express = require('express');
 const geolib = require('geolib');
   
 const app = express();
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
   
@@ -19,9 +19,9 @@ app.post('/distance', (req, res) => {
     res.status(200).send({data: distance, success: true});
 });
   
-app.listen(PORT, (error) =>{
+app.listen(port, (error) =>{
     if(!error)
-        console.log("Server is Successfully Running, and App is listening on port "+ PORT)
+        console.log("Server is Successfully Running, and App is listening on port "+ port)
     else 
         console.log("Error occurred, server can't start", error);
     }
